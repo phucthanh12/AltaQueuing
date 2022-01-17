@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Line } from "react-chartjs-2";
 import DropDown from "./DropDown";
-
 import { lineOptions, data } from "../Assets/configChart/chart2Data";
 
 const Chart2 = () => {

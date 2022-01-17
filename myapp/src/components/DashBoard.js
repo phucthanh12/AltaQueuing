@@ -9,7 +9,7 @@ const DashBoard = () => {
         // <div className=" col l-2" >
         <div className="dashboard">
             <div className="dashboard-logo">
-                <img src={Logo} alt="" />
+                <img src={Logo} alt=""/>
             </div>
             <div className="dashboard-list">
                 {navLists.map((item) => (

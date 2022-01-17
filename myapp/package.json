@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^13.5.0",
     "boxicons": "^2.1.1",
     "browser-router": "^0.2.0",
+    "chart.js": "^2.7.2",
     "circle-chart": "^1.0.0",
     "dropdown": "^0.2.0",
     "pagination": "^0.4.6",
