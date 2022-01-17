@@ -5,6 +5,7 @@ import PageForgot from "../Pages/user/PageForgot";
 import Home from "../Pages/Home/Home";
 import Info from "../Pages/Home/Info";
 import ChartDashBoard from "../Pages/Home/ChartDashBoard";
+import DeviceManager from "../Pages/Device/DeviceManager";
 
 const Router = () => {
     return (
@@ -16,7 +17,7 @@ const Router = () => {
                         element={<ChartDashBoard />}
                     ></Route>
                     <Route path="info" element={<Info />}></Route>
-                    <Route path="equipment" element={<Chart />}></Route>
+                    <Route path="equipment" element={<DeviceManager />}></Route>
                 </Route>
                 <Route path="login" element={<PageLogin />}></Route>
                 <Route path="forgotPass" element={<PageForgot />}></Route>

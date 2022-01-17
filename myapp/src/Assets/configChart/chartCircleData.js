@@ -1,7 +1,6 @@
 import equipment from "../images/monitor.png";
 import service from "../images/equipment.png";
 import random from "../images/random.png";
-
 export const dataCircle = [
     {
         color: "#FF7506",
