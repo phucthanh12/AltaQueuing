@@ -8,7 +8,7 @@ import RestPass from "./ResetPass";
 const FormLogin = ({ account, password, email, resetpass }) => {
     const [name, setName] = useState("");
     const [pass, setPass] = useState("");
-    const [isError, setIsError] = useState(true);
+    const [isError, setisError] = useState(true);
     const [path, setPath] = useState("");
 
     const [status, setStatus] = useState("Quên mật khẩu?");
@@ -18,11 +18,11 @@ const FormLogin = ({ account, password, email, resetpass }) => {
         );
 
         if (result.length > 0) {
-            setIsError(true);
+            setisError(true);
             setPath("/info");
             console.log("đăng nhập thành công");
         } else {
-            setIsError(false);
+            setisError(false);
             setStatus("Sai mật khẩu hoặc tên đăng nhập");
             console.log("đăng nhập thất bại");
         }

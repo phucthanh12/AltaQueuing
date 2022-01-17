@@ -5,7 +5,7 @@ import PageForgot from "../Pages/user/PageForgot";
 import Home from "../Pages/Home/Home";
 import Info from "../Pages/Home/Info";
 import ChartDashBoard from "../Pages/Home/ChartDashBoard";
-import Chart from "../components/Chart";
+
 const Router = () => {
     return (
         <div className="grid wide">
