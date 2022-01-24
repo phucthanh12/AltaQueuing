@@ -1,10 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Table = ({ titleHeaders, datas }) => {
-    const keyDatas = Object.keys(datas[0]);
-    const valuesTitleHeaders = Object.values(titleHeaders[0]);
-
+const Table = ({
+    datas, // mãng chứa các object:[{}]
+    IsDetail, // mãng có cột chi tiết hay không : true or false
+    pathDetail, //nếu có chi tiết thì đường dẫn để xem chi tiết: string
+    IsUpdate, // mãng có cột update hay không : true or false
+    pathUpdate, //nếu có update thì đường dẫn để xem update: string
+    tittleHeaders, // mãng chứa các tiêu đề : string[]
+    keyDatas, // mãng chứa các key object datas:string[]
+}) => {
     const handleClickWatchAdd = (key) => {
         let element = document.getElementsByClassName("colum-service-nowatch")[
             key
@@ -13,44 +18,66 @@ const Table = ({ titleHeaders, datas }) => {
     };
 
     return (
-        <div className="warp-table">
-            <div className="table ">
-                <table>
-                    <thead>
-                        <tr>
-                            {valuesTitleHeaders.map((item, key) => (
-                                <th key={key}>{item}</th>
-                            ))}
-                            <th></th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {datas.map((data, key) => (
-                            <tr key={data.id}>
-                                {keyDatas.map((keyData, index) => (
+        <div className="table ">
+            <table>
+                <thead>
+                    <tr>
+                        {tittleHeaders.map((tittle, index) => (
+                            <th key={index}>{tittle}</th>
+                        ))}
+                        {IsDetail && <th></th>}
+                        {IsUpdate && <th></th>}
+                    </tr>
+                </thead>
+                <tbody>
+                    {datas.map((data, key) => (
+                        <tr key={data.id}>
+                            {keyDatas.map((keyData, index) => {
+                                return (
                                     <th
-                                        key={`${data.id}- ${keyData}`}
+                                        key={index}
                                         className={
                                             keyData === "service"
                                                 ? "colum-service colum-service-nowatch"
                                                 : ""
                                         }
                                     >
-                                        {typeof data[keyData] === "boolean" &&
-                                            (data[keyData] ? (
-                                                <span className="active">
-                                                    {keyData === "active"
-                                                        ? "Hoạt động"
-                                                        : "Kết nối"}
-                                                </span>
-                                            ) : (
-                                                <span className="danger">
-                                                    {keyData === "active"
-                                                        ? "Ngưng hoạt động"
-                                                        : "Mất kết nối"}
-                                                </span>
-                                            ))}
+                                        {(keyData === "active") &
+                                        (data[keyData] === true) ? (
+                                            <span className="active">
+                                                {"Hoạt động"}
+                                            </span>
+                                        ) : (
+                                            ""
+                                        )}
+
+                                        {(keyData === "active") &
+                                        (data[keyData] === false) ? (
+                                            <span className="danger">
+                                                {"Ngưng hoạt động"}
+                                            </span>
+                                        ) : (
+                                            ""
+                                        )}
+
+                                        {(keyData === "connect") &
+                                        (data[keyData] === false) ? (
+                                            <span className="danger">
+                                                {"Mất kết nối"}
+                                            </span>
+                                        ) : (
+                                            ""
+                                        )}
+
+                                        {(keyData === "connect") &
+                                        (data[keyData] === true) ? (
+                                            <span className="active">
+                                                {"Kết nối"}
+                                            </span>
+                                        ) : (
+                                            ""
+                                        )}
+
                                         {<p>{data[keyData]}</p>}
                                         {keyData === "service" && (
                                             <>
@@ -65,26 +92,30 @@ const Table = ({ titleHeaders, datas }) => {
                                             </>
                                         )}
                                     </th>
-                                ))}
+                                );
+                            })}
+                            {IsDetail && (
                                 <th>
-                                    <Link to={`/equipment/detail?id=${key}`}>
+                                    <Link to={`/${pathDetail}/${data.id}`}>
                                         <span className="table-Link">
                                             Chi tiết
                                         </span>
                                     </Link>
                                 </th>
+                            )}
+                            {IsUpdate && (
                                 <th>
-                                    <Link to={`/equipment/update?id=${key}`}>
+                                    <Link to={`/${pathUpdate}/${data.id}`}>
                                         <span className="table-Link">
                                             Cập nhật
                                         </span>
                                     </Link>
                                 </th>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
-            </div>
+                            )}
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
         </div>
     );
 };
