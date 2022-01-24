@@ -55,7 +55,7 @@ const HeaderInfo = ({
                                 Xin chào
                             </span>
                             <p className="headerInfo-right_name">
-                                {fullname ? fullname : "lê quỳnh ái vân"}
+                                {fullname ? fullname : "Lê Quỳnh Ái Vân"}
                             </p>
                         </div>
                     </div>

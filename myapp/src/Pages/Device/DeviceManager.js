@@ -4,6 +4,7 @@ import ControlDevice from "./ControlDevice";
 import Table from "../../components/Table";
 import { Equipments, tittleEquipments } from "../../Assets/fakeData/equipData";
 import Pagination from "../../components/Pagination";
+import { Link } from "react-router-dom";
 const DeviceManager = () => {
     return (
         <div className="deviceManager">
@@ -11,6 +12,12 @@ const DeviceManager = () => {
             <ControlDevice />
             <Table titleHeaders={tittleEquipments} datas={Equipments} />
             <Pagination />
+            <Link to='/add'>
+                <div className="deviceManager-add">
+                    <div className="deviceManager-add_icon">+</div>
+                    Thêm thiết bị
+                </div>
+            </Link>
         </div>
     );
 };

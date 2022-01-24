@@ -40,7 +40,8 @@ tr:nth-child(even) {
 }
 
 th {
-    padding-left: 16px;
+    padding-left: 17px;
+    padding-right: 17px;
 }
 th > span {
     @include flex(center, flex-start);

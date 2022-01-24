@@ -7,9 +7,11 @@
 @import "./components/pic";
 @import "./components/SetPass";
 @import "./components/Dropdown";
-@import "./components/Datepicker";
-
 @import "./components/login";
+@import "./components/Datepicker";
+@import "./components/Table";
+@import "./components/pagination";
+
 @import "./components/Home/dashboard";
 @import "./components/Home/Info";
 @import "./components/Home/headerInfo";
@@ -17,6 +19,5 @@
 @import "./components/Home/dashboardCenter";
 @import "./components/Home/notifyBell";
 
-@import "./components/pagination";
-@import "./components/Table";
 @import "./components/Device/index.scss";
+@import "./components/Device/FormAddDevice.scss";
